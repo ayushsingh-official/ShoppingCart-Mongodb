@@ -16,13 +16,12 @@ import com.project.shoppingApplication.model.Cart;
 import com.project.shoppingApplication.service.CartService;
 
 @RestController
-//@RequestMapping("/api/v1/cart")
 public class CartController {
 
 	@Autowired
 	private CartService cartService;
 
-	@PostMapping(value = "/create")
+	@PostMapping(value = "/createCart")
 	private ResponseEntity<?> create(@RequestBody CartRequest cartRequest) {
 		try {
 			Cart cart = cartService.saveOrUpdate(cartRequest);
