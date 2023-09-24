@@ -9,17 +9,16 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-@Document(collection = "User")
-public class Product {
+@Document(collection = "Item")
+public class Item {
 
 	@Id
 	private String id;
 
 	public String productName;
-	public String productCode;
+	
+	public String quantity;
 
-	public int price = 0;
-
-	private int stock = 1000;
+	public int price;
 
 }

@@ -5,21 +5,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "User")
+@Document(collection = "users")
 public class User {
-	
+
     @Id
     private String id;
 
-    public Role roleId;
-    
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private String password;
-    private String email;
+    @NonNull
+    private String username;
+
+    @NonNull
+    private  String password;
 
 }

@@ -1,11 +1,15 @@
 package com.project.shoppingApplication.model;
 
 import java.util.HashMap;
+import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NonNull;
 
 
 @Data
@@ -13,15 +17,19 @@ import lombok.Data;
 @Document(collection = "Cart")
 public class Cart {
 
+	@Id
     private String id;
 
     public String status; //pending, ordered
 
-    public String userName;
+    @NonNull
+    public String userId;
 
-    public HashMap<String, Product> products;
-
-    public HashMap<String, Integer> productQuantities;
+    @DBRef      // to store the reference of another Documents
+    @NonNull
+    private List<Item> item;
+    
+//    public HashMap<String, Integer> productId;
     
 	
 }
