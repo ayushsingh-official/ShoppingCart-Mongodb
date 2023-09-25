@@ -33,25 +33,25 @@ public class CustomerController {
 		}
 	}
 
-//	@GetMapping("/customerbyname/{name}")
-//	private ResponseEntity<?> getCustomerByName(@PathVariable(value = "name") String name) {
-//		try {
-//			Customer customer = customerService.findCustomerByName(name);
-//			return new ResponseEntity<>(customer, HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}
-//
-//	@GetMapping("/customerbyemail/{email}")
-//	private ResponseEntity<?> getCustomerByEmail(@PathVariable(value = "email") String email) {
-//		try {
-//			Customer customer = customerService.findCustomerByEmail(email);
-//			return new ResponseEntity<>(customer, HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}
+	@GetMapping("/customerbyname/{name}")
+	private ResponseEntity<?> getCustomerByName(@PathVariable(value = "name") String name) {
+		try {
+			Customer customer = customerService.findCustomerByName(name);
+			return new ResponseEntity<>(customer, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/customerbyemail/{email}")
+	private ResponseEntity<?> getCustomerByEmail(@PathVariable(value = "email") String email) {
+		try {
+			Customer customer = customerService.findCustomerByEmail(email);
+			return new ResponseEntity<>(customer, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 	@PostMapping(value = "/createCustomer")
 	private ResponseEntity<?> create(@RequestBody CustomerRequest customerRequest) {

@@ -11,7 +11,7 @@ import lombok.NonNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "users")
+@Document(collection = "Customer")
 public class Customer {
 
     @Id

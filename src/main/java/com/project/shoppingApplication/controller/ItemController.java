@@ -33,25 +33,25 @@ public class ItemController {
 		}
 	}
 
-//	@GetMapping("/itembyname/{name}")
-//	private ResponseEntity<?> getItemByName(@PathVariable(value = "name") String name) {
-//		try {
-//			Item item = itemService.findByName(name);
-//			return new ResponseEntity<>(item, HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}
-//
-//	@GetMapping("/itembyid/{id}")
-//	private ResponseEntity<?> getItemById(@PathVariable(value = "id") String id) {
-//		try {
-//			Item item = itemService.findItemById(id);
-//			return new ResponseEntity<>(item, HttpStatus.OK);
-//		} catch (Exception e) {
-//			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-//		}
-//	}
+	@GetMapping("/itembyname/{name}")
+	private ResponseEntity<?> getItemByName(@PathVariable(value = "name") String name) {
+		try {
+			Item item = itemService.findByName(name);
+			return new ResponseEntity<>(item, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+
+	@GetMapping("/itembyid/{id}")
+	private ResponseEntity<?> getItemById(@PathVariable(value = "id") String id) {
+		try {
+			Item item = itemService.findItemById(id);
+			return new ResponseEntity<>(item, HttpStatus.OK);
+		} catch (Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
 
 	@PostMapping(value = "/create")
 	private ResponseEntity<?> create(@RequestBody ItemRequest itemRequest) {

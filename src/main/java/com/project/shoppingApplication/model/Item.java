@@ -5,9 +5,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Document(collection = "Item")
 public class Item {
@@ -15,10 +16,10 @@ public class Item {
 	@Id
 	private String id;
 
-	public String productName;
-	
-	public String quantity;
+	private String productName;
 
-	public int price;
+	private String quantity;
+
+	private int price;
 
 }

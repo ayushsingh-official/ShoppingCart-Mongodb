@@ -5,6 +5,8 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.project.shoppingApplication.dto.ItemRequest;
@@ -39,13 +41,28 @@ public class ItemServiceImpl implements ItemService {
 		itemRepository.deleteById(id);
 	}
 
-//	@Override
-//	public Item findByName(String name) {
-//		return itemRepository.findByName(name);
-//	}
-//
-//	@Override
-//	public Item findItemById(String id) {
-//		return itemRepository.findItemById(id);
-//	}
+	@Override
+	public Item findByName(String name) {
+
+		Query query = new Query();
+		query.addCriteria(Criteria.where("productName").is(name));
+		Item item = mongoTemplate.findOne(query, Item.class);
+
+		System.out.println(item);
+
+		return item;
+	}
+
+	@Override
+	public Item findItemById(String id) {
+
+		Query query = new Query();
+		query.addCriteria(Criteria.where("_id").is(id));
+		Item item = mongoTemplate.findOne(query, Item.class);
+
+		System.out.println(item);
+
+		return item;
+
+	}
 }
