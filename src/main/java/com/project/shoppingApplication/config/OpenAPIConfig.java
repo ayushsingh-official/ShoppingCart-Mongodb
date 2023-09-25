@@ -15,7 +15,7 @@ public class OpenAPIConfig {
 	@Bean
 	public OpenAPI openApiInformation() {
 		Server localServer = new Server().url("http://localhost:8080").description("Localhost Server URL");
-		Contact contact = new Contact().email("niket.agrawal90@gmail.com").name("Niket Agrawal");
+		Contact contact = new Contact().email("ayushofficial.in@gmail.com").name("Ayush Singh");
 		Info info = new Info().contact(contact).description("Spring Boot 3 + Open API 3")
 				.summary("Demo of Spring Boot 3 & Open API 3 Integration").title("Spring Boot 3 + Open API 3")
 				.version("V1.0.0").license(new License().name("Apache 2.0").url("http://springdoc.org"));
