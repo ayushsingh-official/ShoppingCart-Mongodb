@@ -9,7 +9,7 @@ public interface CartService {
 
 	Cart saveOrUpdate(CartRequest cartRequest);
 
-	Cart findCartByCustomerId(CartRequest cartRequest);
+//	Cart findCartByCustomerId(CartRequest cartRequest);
 
 	List<Cart> findAllCarts();
 }

@@ -11,7 +11,7 @@ import com.project.shoppingApplication.model.Item;
 public interface ItemRepository extends MongoRepository<Item, String> {
 	List<Item> findAll();
 
-	Item findByName(String name);
-
-	Item findItemById(String id);
+//	Item findByName(String name);
+//
+//	Item findItemById(String id);
 }

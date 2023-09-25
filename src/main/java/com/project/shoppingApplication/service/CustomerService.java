@@ -11,9 +11,9 @@ public interface CustomerService {
 
 	Customer saveOrUpdate(CustomerRequest customerRequest);
 
-	Customer findCustomerByName(String name);
+//	Customer findCustomerByName(String name);
+//
+//	Customer findCustomerByEmail(String email);
 
-	Customer findCustomerByEmail(String email);
-
-	void delete(String id);
+	void deleteById(String id);
 }

@@ -26,11 +26,11 @@ public class CartServiceImpl implements CartService {
 		return cartRepository.save(cart);
 	}
 
-	@Override
-	public Cart findCartByCustomerId(CartRequest cartRequest) {	
-		
-		return cartRepository.findCartByCustomerId(cartRequest.getCustomerId());
-	}
+//	@Override
+//	public Cart findCartByCustomerId(CartRequest cartRequest) {	
+//		
+//		return cartRepository.findCartByCustomerId(cartRequest.getCustomerId());
+//	}
 
 	@Override
 	public List<Cart> findAllCarts() {

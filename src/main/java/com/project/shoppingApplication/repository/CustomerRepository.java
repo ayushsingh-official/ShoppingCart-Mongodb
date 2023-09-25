@@ -12,8 +12,8 @@ public interface CustomerRepository extends MongoRepository<Customer, String> {
 	
 	List<Customer> findAll();
 
-	Customer findCustomerByName(String name);
-
-	Customer findCustomerByEmail(String email);
+//	Customer findCustomerByName(String name);
+//
+//	Customer findCustomerByEmail(String email);
 }
 

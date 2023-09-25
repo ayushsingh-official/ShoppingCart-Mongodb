@@ -39,13 +39,13 @@ public class ItemServiceImpl implements ItemService {
 		itemRepository.deleteById(id);
 	}
 
-	@Override
-	public Item findByName(String name) {
-		return itemRepository.findByName(name);
-	}
-
-	@Override
-	public Item findItemById(String id) {
-		return itemRepository.findItemById(id);
-	}
+//	@Override
+//	public Item findByName(String name) {
+//		return itemRepository.findByName(name);
+//	}
+//
+//	@Override
+//	public Item findItemById(String id) {
+//		return itemRepository.findItemById(id);
+//	}
 }

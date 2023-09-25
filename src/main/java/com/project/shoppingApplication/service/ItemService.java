@@ -9,9 +9,9 @@ public interface ItemService {
 	
 	List<Item> findAll();
 
-	Item findByName(String name);
-
-	Item findItemById(String id);
+//	Item findByName(String name);
+//
+//	Item findItemById(String id);
 
 	Item saveOrUpdate(ItemRequest itemRequest);
 

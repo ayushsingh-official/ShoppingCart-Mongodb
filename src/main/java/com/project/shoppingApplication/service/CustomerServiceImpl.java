@@ -37,18 +37,18 @@ public class CustomerServiceImpl implements CustomerService {
 		return customerRepository.save(customer);
 	}
 
-	@Override
-	public Customer findCustomerByName(String name) {
-		return customerRepository.findCustomerByName(name);
-	}
+//	@Override
+//	public Customer findCustomerByName(String name) {
+//		return customerRepository.findCustomerByName(name);
+//	}
 
 	@Override
-	public void delete(String id) {
+	public void deleteById(String id) {
 		customerRepository.deleteById(id);
 	}
 
-	@Override
-	public Customer findCustomerByEmail(String email) {
-		return customerRepository.findCustomerByEmail(email);
-	}
+//	@Override
+//	public Customer findCustomerByEmail(String email) {
+//		return customerRepository.findCustomerByEmail(email);
+//	}
 }
