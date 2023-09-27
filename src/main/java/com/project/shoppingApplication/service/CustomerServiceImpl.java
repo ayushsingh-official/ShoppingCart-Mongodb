@@ -48,9 +48,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 		query.addCriteria(Criteria.where("name").is(name));
 		Customer customer = mongoTemplate.findOne(query, Customer.class);
-		
-		if(customer == null ) {
-			throw new ResourceNotFoundException("Data not available in Databse....");
+
+		if (customer == null) {
+			throw new ResourceNotFoundException();
 		}
 
 		return customer;
