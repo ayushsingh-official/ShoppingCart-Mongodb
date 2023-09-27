@@ -23,3 +23,7 @@ public class OpenAPIConfig {
 		return new OpenAPI().info(info).addServersItem(localServer);
 	}
 }
+
+//http://localhost:8080/swagger-ui/index.html
+
+

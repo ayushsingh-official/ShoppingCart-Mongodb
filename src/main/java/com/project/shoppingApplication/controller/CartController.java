@@ -28,7 +28,6 @@ public class CartController {
 			Cart cart = cartService.saveOrUpdate(cartRequest);
 			return new ResponseEntity<>(cart, HttpStatus.CREATED);
 		} catch (Exception e) {
-
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
@@ -39,8 +38,10 @@ public class CartController {
 			Cart cart = cartService.findCartByCustomerId(id);
 			return new ResponseEntity<>(cart, HttpStatus.OK);
 		} catch (Exception e) {
+//			ResponseEntity.status(null)
+			System.out.println(e.getMessage());
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+		 }
 	}
 
 	@GetMapping(value = "/carts")

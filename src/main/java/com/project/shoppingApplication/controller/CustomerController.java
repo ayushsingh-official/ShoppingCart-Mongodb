@@ -27,7 +27,7 @@ public class CustomerController {
 	private ResponseEntity<?> customers() {
 		try {
 			List<Customer> customers = customerService.findAll();
-			return new ResponseEntity<>(customers, HttpStatus.OK);
+			return new ResponseEntity<>(customers, HttpStatus.OK); 
 		} catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -35,12 +35,12 @@ public class CustomerController {
 
 	@GetMapping("/customerbyname/{name}")
 	private ResponseEntity<?> getCustomerByName(@PathVariable(value = "name") String name) {
-		try {
+		
 			Customer customer = customerService.findCustomerByName(name);
+			System.out.println("customer : " + customer);
+			
 			return new ResponseEntity<>(customer, HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-		}
+
 	}
 
 	@GetMapping("/customerbyemail/{email}")

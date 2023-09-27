@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.project.shoppingApplication.dto.CartRequest;
 import com.project.shoppingApplication.model.Cart;
-import com.project.shoppingApplication.model.Customer;
 
 public interface CartService {
 
