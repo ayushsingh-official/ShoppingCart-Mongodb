@@ -2,18 +2,22 @@ package com.project.shoppingApplication.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import org.springframework.stereotype.Component;
 
-@RestControllerAdvice
-public class GlobalExceptionCustomized extends ResponseEntityExceptionHandler{
+// Only one class will do all exception.
+@Component
+public class GlobalExceptionCustomized extends RuntimeException {
 
-	// We are handling/customizing ResourceNotFoundException class here.
-	@ExceptionHandler(value = ResourceNotFoundException.class)
-	public ResponseEntity<?> handleResourceNotFoundException() {
+	private static final long serialVersionUID = 1L;
+
+
+	public ResponseEntity<?> resourceNotFoundException() {
 
 		return new ResponseEntity<>("Data not found/Available", HttpStatus.NOT_FOUND);
 
 	}
+	
+	
+	
+
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.shoppingApplication.dto.CustomerRequest;
+import com.project.shoppingApplication.exception.GlobalExceptionCustomized;
 import com.project.shoppingApplication.model.Customer;
 import com.project.shoppingApplication.service.CustomerService;
 
@@ -23,11 +24,14 @@ public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
 
+	@Autowired
+	private GlobalExceptionCustomized exception;
+
 	@GetMapping("/customers")
 	private ResponseEntity<?> customers() {
 		try {
 			List<Customer> customers = customerService.findAll();
-			return new ResponseEntity<>(customers, HttpStatus.OK); 
+			return new ResponseEntity<>(customers, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -35,11 +39,20 @@ public class CustomerController {
 
 	@GetMapping("/customerbyname/{name}")
 	private ResponseEntity<?> getCustomerByName(@PathVariable(value = "name") String name) {
-		
-			Customer customer = customerService.findCustomerByName(name);
-			System.out.println("customer : " + customer);
-			
-			return new ResponseEntity<>(customer, HttpStatus.OK);
+
+		Customer customer = customerService.findCustomerByName(name);
+		System.out.println("customer : " + customer);
+
+//		GlobalExceptionCustomized exception = new GlobalExceptionCustomized();   // Autowired by using @component annotation in class
+
+		// Return type of exception has to be the same as all controller. 
+		// which creates a tightly bound code , not a good practice.
+		// That is a issue which is not when we throw Exception classes directly
+		if (customer == null) {
+			return exception.resourceNotFoundException();
+		}
+
+		return new ResponseEntity<>(customer, HttpStatus.OK);
 
 	}
 

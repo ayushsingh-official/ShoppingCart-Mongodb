@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import com.project.shoppingApplication.dto.CustomerRequest;
-import com.project.shoppingApplication.exception.ResourceNotFoundException;
 import com.project.shoppingApplication.model.Customer;
 import com.project.shoppingApplication.repository.CustomerRepository;
 
@@ -49,9 +48,9 @@ public class CustomerServiceImpl implements CustomerService {
 		query.addCriteria(Criteria.where("name").is(name));
 		Customer customer = mongoTemplate.findOne(query, Customer.class);
 
-		if (customer == null) {
-			throw new ResourceNotFoundException();
-		}
+//		if (customer == null) {
+//			throw new ResourceNotFoundException();
+//		}
 
 		return customer;
 	}
